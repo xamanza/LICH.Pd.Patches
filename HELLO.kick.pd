@@ -1,0 +1,530 @@
+#N canvas 220 98 1920 1026 12;
+#X obj 213 -1515 tgl 23 0 empty empty empty 17 7 0 10 -203904 -1 -1
+1 1;
+#X obj 214 -1477 s GATE_OUT @owl Push;
+#X obj 49 -1324 s metrobang;
+#X obj 361 1877 hip~ 20;
+#X obj 364 1907 hip~ 20;
+#X obj 369 1935 hip~ 20;
+#X obj 361 1841 hip~ 5;
+#X obj -181 -1267 timer;
+#X obj -181 -1297 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -149 -1297 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -181 -1330 sel 0 1;
+#X obj -181 -1419 f;
+#X obj -184 -1460 bng 23 250 50 0 empty empty empty 17 7 0 10 -232576
+-1 -1;
+#X obj -181 -1391 + 1;
+#X obj -181 -1363 mod 2;
+#X text -140 -1456 taptempo;
+#X msg -123 -1403 0;
+#X obj 51 -1599 bng 23 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj -36 -1653 r Button_1 @owl B1;
+#X obj -234 1887 hip~ 20;
+#X obj -231 1916 hip~ 20;
+#X obj -226 1944 hip~ 20;
+#X obj -233 1852 hip~ 5;
+#X obj -57 705 line~;
+#X obj -99 737 *~;
+#X obj -70 556 bng 27 250 50 0 empty empty empty 0 -6 0 8 -203904 -1
+-1;
+#X obj -174 592 adc~ 1;
+#X obj -67 -1218 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 375.873 256 0;
+#X obj -181 -1239 min 3333;
+#X obj 55 562 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 217 256 0;
+#X obj -58 613 f;
+#X msg -57 677 1 \, 0 \$1;
+#X obj -152 2334 r metrobang;
+#X obj -147 2381 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -153 2549 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 91 256 0;
+#X obj -148 2522 random 100;
+#X obj -152 2572 / 100;
+#X obj -138 2708 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 8950 1;
+#X obj -164 2652 line;
+#X obj -134 2413 i;
+#X obj -134 2439 + 1;
+#X obj -134 2490 sel 0;
+#X obj -134 2465 mod 8;
+#X obj 49 -1406 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 64 -1383 to use this button as the main clock of your algorythm
+you can use this bang as the main metronome [in this case metro bang]
+;
+#X text -67 -1265 this piece of code calculates the taptempo in your
+patch from the incoming CV from GATE1 (CV input 1);
+#X text 265 -1525 This toggle activates the led in the GATE.OUT portso
+you can visualize the clock in it.;
+#X obj -36 2125 dac~ 1;
+#X obj 142 2127 dac~ 2;
+#X obj -174 696 *~ 0.33;
+#X text 103 -1748 code by Xavi Manzanares / Jun.2021;
+#X obj -107 812 s~ linein1;
+#X obj 213 2643 s CV_OUT_2 @owl G;
+#X obj 177 2239 r metrobang;
+#X obj 182 2285 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 176 2454 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 6 256 0;
+#X obj 181 2427 random 100;
+#X obj 177 2477 / 100;
+#X obj 191 2613 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 7062 1;
+#X obj 165 2557 line;
+#X msg 156 2511 \$1 1111;
+#X obj 195 2318 i;
+#X obj 195 2344 + 1;
+#X obj 195 2395 sel 0;
+#X obj 195 2369 mod 8;
+#X text 169 2675 CV OUT 2 generates Random CV values with smooth and
+slow progressions;
+#X obj -116 2739 s CV_OUT_1 @owl F;
+#X obj -58 643 * 1;
+#X obj -108 774 *~ 0.833;
+#X obj 42 29 line~;
+#X obj -74 71 *~;
+#X obj -98 28 osc~;
+#X msg -19 4 0.5;
+#X obj -74 190 s~ k1;
+#X obj 56 135 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 11303 1;
+#X obj -75 142 *~;
+#X obj 184 46 sel 1;
+#X obj 200 19 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj -148 -114 r midibase;
+#X obj -147 -80 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256 0;
+#X obj -136 -26 mtof;
+#X msg 151 95 0.89;
+#X msg 110 94 0.74;
+#X obj -144 993 r~ k1;
+#X obj -67 993 r~ linein1;
+#X obj 43 990 r~ linein2;
+#X obj -129 1136 s~ mixxx;
+#X obj 106 1366 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -203904 -1 -1 375.873 256 0;
+#X msg 106 1387 set \$1;
+#X msg 169 1431 375.873;
+#X obj 222 1393 t b f;
+#X obj 222 1342 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -203904
+-1 -1 3;
+#X obj 222 1365 + 0;
+#X obj 226 1452 *;
+#X obj 227 1478 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -203904 -1 -1 1127.62 256 0;
+#X obj 106 1339 r time;
+#X obj 228 1602 sig~;
+#X obj 233 1779 *~;
+#X obj 377 1682 r reinjection;
+#X obj 114 1703 hip~ 69;
+#X obj 116 1731 hip~ 69;
+#X obj 120 1761 hip~ 69;
+#X obj -149 1495 r~ mixxx;
+#X obj 351 -239 bng 23 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 378 1650 s reinjection;
+#X obj 127 -324 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -203904
+-1 -1 0;
+#X obj 77 -338 f;
+#X obj 77 -310 + 1;
+#X obj 77 -282 mod 2;
+#X obj 155 -261 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256 0;
+#X obj -13 -378 bng 27 250 50 0 empty empty empty 0 -6 0 8 -203904
+-1 -1;
+#X obj 64 -252 sel 0;
+#X msg -172 2606 \$1 11;
+#X obj 397 709 line~;
+#X obj 355 741 *~;
+#X obj 381 565 bng 27 250 50 0 empty empty empty 0 -6 0 8 -203904 -1
+-1;
+#X obj 465 555 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 217 256 0;
+#X obj 396 617 f;
+#X msg 397 681 1 \, 0 \$1;
+#X obj 280 700 *~ 0.33;
+#X obj 396 647 * 1;
+#X obj 355 769 *~ 0.833;
+#X obj 280 596 adc~ 2;
+#X obj 356 807 s~ linein2;
+#X obj -67 -1196 s time;
+#X obj -146 -164 s midibase;
+#X obj 226 1499 s delaitime;
+#X obj 227 1571 r delaitime;
+#X text -175 2787 CV OUT 1 generates Random CV values with faST progressions
+;
+#X text 168 2914 ///////////////////////////////////////////;
+#X obj 137 -297 + 1;
+#X obj 222 1313 r valueknobB;
+#X obj 391 1618 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 10000 1;
+#X obj 164 -166 s scaledtrigger;
+#X obj 388 383 r scaledtrigger;
+#X obj -131 -193 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10
+-203904 -1 -1 0 1;
+#X obj -22 -412 r metrobang;
+#X obj 351 -202 f;
+#X obj 351 -174 + 1;
+#X msg 51 -15 1 \, 0 \$1;
+#X obj 186 -78 f;
+#X obj 100 -203 bng 23 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 425 -402 bng 23 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 413 -435 r Button_2 @owl B2;
+#X obj 448 -371 f;
+#X obj 448 -343 + 1;
+#X obj 448 -315 mod 2;
+#X obj 448 -288 sel 0;
+#X obj -126 -60 + 12;
+#X obj -187 18 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 16.3516 256 0;
+#X obj 2 763 env~;
+#X obj 24 792 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0 256 0;
+#X obj 11 820 s envadc1;
+#X obj 436 760 env~;
+#X obj 458 789 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0 256 0;
+#X obj 445 817 s envadc2;
+#X obj 351 -146 mod 3;
+#X obj 369 412 bng 23 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 392 443 f;
+#X obj 392 471 + 1;
+#X obj 392 526 sel 0;
+#X text -113 -1750 BEFACO.LICH.USAGE;
+#X text -215 -244 percutive's frequency control;
+#X text 123 -378 from less to more;
+#X text 408 -467 Button 2 (Right) controls de decay time of the microsynth
+;
+#X text 247 12 Button 2 (Right) controls de decay time of the microsynth
+;
+#X text -197 562 IN_L LICH PORT;
+#X text 233 566 IN_R LICH PORT;
+#X text 221 -1446 GATE OUT LED Rate;
+#X obj 34 590 / 4;
+#X obj 471 582 / 2;
+#X obj 24 437 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 375.873 256 0;
+#X obj 23 412 r time;
+#X obj 9 462 * 2;
+#X obj -32 489 pipe;
+#X obj 744 0 + 1;
+#X obj 775 46 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 217 256 0;
+#X obj 799 -19 hsl 128 15 0 127 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 3800 1;
+#X obj -123 451 r metrobang;
+#X obj 761 73 s decaytimeadc;
+#X obj 54 533 r decaytimeadc;
+#X obj 464 526 r decaytimeadc;
+#X obj 309 -14 s decaytime;
+#X obj 336 -54 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 223 256 0;
+#X obj 330 -85 + 1;
+#X obj 567 -212 f;
+#X obj 562 -125 * 89;
+#X obj 567 -156 mod 3;
+#X obj 552 -64 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 179 256 0;
+#X obj 546 -95 + 1;
+#X msg 438 -158 0;
+#X obj 567 -184 + 1;
+#X msg 483 -159 2;
+#X obj 466 -976 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 10000 1;
+#X obj 463 -1045 * 1;
+#X text -85 -821 Knob A;
+#X obj 463 -1015 min 0.8;
+#X obj 53 -846 * 1;
+#X obj 53 -816 * 8;
+#X obj 53 -785 hradio 23 1 0 8 empty empty empty 0 -8 0 10 -203904
+-1 -1 3;
+#X obj 53 -880 r Pot_B @owl B;
+#X text 52 -905 Knob B;
+#X obj 51 -756 s valueknobB;
+#X text 242 -1017 Knob C;
+#X text 460 -1100 Knob D;
+#X obj 238 -886 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 0 1;
+#X obj -143 -681 * 8;
+#X obj -143 -650 hradio 23 1 0 8 empty empty empty 0 -8 0 10 -203904
+-1 -1 0;
+#X obj -142 -734 * -1;
+#X obj -143 -709 + 1;
+#X obj 235 -963 * 111;
+#X text 285 -965 multiplier by 111;
+#X text 65 -718 value Knob B from 0 to 8;
+#X obj -142 -764 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 12700 1;
+#X text -145 -571 Amount of triggs from less to more;
+#X text 67 -692 quantized delay time;
+#X text 470 -893 delay feedback;
+#X obj -142 -797 r Pot_A @owl A;
+#X obj 235 -996 r Pot_C @owl C;
+#X obj 237 -858 s valueknobC;
+#X obj -143 -610 s valueknobA;
+#X obj 127 -351 r valueknobA;
+#X obj 462 -1078 r Pot_D @owl D;
+#X obj 466 -955 s valueknobD;
+#X obj -173 -214 r valueknobC;
+#X obj 377 1586 r valueknobD;
+#X text -143 -587 value Knob A from 0 to 8;
+#X text 461 -919 value Knob D from 0 to 1;
+#X text 144 -1674 incoming message from Left button and GATE1 (CV Input
+1);
+#X text 149 -1644 incoming pushes from Left button and GATE1 (CV Input
+1) are doing the same \, therefore to avoid clock conflicts is much
+more efficient to use this button as the main clock of your algorythm
+;
+#X obj 551 -434 loadbang;
+#X obj 392 499 mod 4;
+#X text 76 -400 knob A controls de amount of triggers;
+#X text 261 -829 value Knob C from 0 to 111;
+#X text -224 -267 value Knob C from 0 to 111 midi values;
+#X text -118 344 adc~1 and adc~2 creates slices of incoming signal
+that are mixed it up with the main kick;
+#X text -180 1457 mixer collector;
+#X text -18 1130 mixer collector;
+#X text -133 1658 dry signal;
+#X text 417 1841 hip~ 5 corrects the DC offset;
+#X text -177 1852 hip~ 5 corrects the DC offset;
+#X text 22 -1749 HELLO.KICK;
+#X text 289 1377 quantizing delays proportioned to the incoming detected
+GATE1 (CV Input 1) CLOCK;
+#X text 381 1541 DElay Feedback in LICH has to be about 75% (0.75)
+for working properly;
+#X text 52 1604 delay signal;
+#X text -114 2605 11ms fast progressions;
+#X text 230 2510 1111ms slow progressions;
+#X obj 346 -115 * 111;
+#X obj -150 1723 *~ 0.7;
+#X obj 359 1806 *~ 0.7;
+#X obj 229 1632 vd~ lichdelay;
+#X obj 153 1852 delwrite~ lichdelay 3000;
+#X obj 353 1978 lop~ 5555;
+#X obj 356 2008 lop~ 5555;
+#X obj 361 2036 lop~ 5555;
+#X obj 114 1676 *~ 0.34;
+#X text 531 -1015 threshold for feeback;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 252 0;
+#X connect 6 0 3 0;
+#X connect 7 0 28 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 1;
+#X connect 10 0 8 0;
+#X connect 10 1 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 11 1;
+#X connect 14 0 10 0;
+#X connect 16 0 11 1;
+#X connect 17 0 0 0;
+#X connect 17 0 43 0;
+#X connect 17 0 12 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 47 0;
+#X connect 21 0 48 0;
+#X connect 22 0 19 0;
+#X connect 23 0 24 1;
+#X connect 24 0 68 0;
+#X connect 24 0 150 0;
+#X connect 25 0 30 0;
+#X connect 26 0 49 0;
+#X connect 27 0 124 0;
+#X connect 28 0 27 0;
+#X connect 29 0 169 0;
+#X connect 30 0 67 0;
+#X connect 31 0 23 0;
+#X connect 32 0 33 0;
+#X connect 33 0 39 0;
+#X connect 34 0 36 0;
+#X connect 35 0 34 0;
+#X connect 36 0 112 0;
+#X connect 37 0 66 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 40 0 39 1;
+#X connect 40 0 42 0;
+#X connect 41 0 35 0;
+#X connect 42 0 41 0;
+#X connect 43 0 2 0;
+#X connect 49 0 24 0;
+#X connect 53 0 54 0;
+#X connect 54 0 61 0;
+#X connect 55 0 57 0;
+#X connect 56 0 55 0;
+#X connect 57 0 60 0;
+#X connect 58 0 52 0;
+#X connect 59 0 58 0;
+#X connect 60 0 59 0;
+#X connect 61 0 62 0;
+#X connect 62 0 61 1;
+#X connect 62 0 64 0;
+#X connect 63 0 56 0;
+#X connect 64 0 63 0;
+#X connect 67 0 31 0;
+#X connect 68 0 51 0;
+#X connect 69 0 70 1;
+#X connect 70 0 75 0;
+#X connect 71 0 70 0;
+#X connect 72 0 71 1;
+#X connect 74 0 75 1;
+#X connect 75 0 73 0;
+#X connect 76 0 81 0;
+#X connect 76 1 82 0;
+#X connect 77 0 76 0;
+#X connect 78 0 79 0;
+#X connect 79 0 148 0;
+#X connect 80 0 71 0;
+#X connect 80 0 149 0;
+#X connect 81 0 74 0;
+#X connect 82 0 74 0;
+#X connect 83 0 86 0;
+#X connect 84 0 86 0;
+#X connect 85 0 86 0;
+#X connect 87 0 88 0;
+#X connect 88 0 89 0;
+#X connect 89 0 93 0;
+#X connect 90 0 89 0;
+#X connect 90 1 93 1;
+#X connect 91 0 92 0;
+#X connect 92 0 90 0;
+#X connect 93 0 94 0;
+#X connect 94 0 126 0;
+#X connect 95 0 87 0;
+#X connect 96 0 250 0;
+#X connect 97 0 251 0;
+#X connect 98 0 97 1;
+#X connect 99 0 100 0;
+#X connect 100 0 101 0;
+#X connect 101 0 251 0;
+#X connect 102 0 248 0;
+#X connect 102 0 255 0;
+#X connect 103 0 137 0;
+#X connect 103 0 185 0;
+#X connect 105 0 130 0;
+#X connect 106 0 107 0;
+#X connect 107 0 108 0;
+#X connect 107 0 106 1;
+#X connect 108 0 109 0;
+#X connect 108 0 111 0;
+#X connect 110 0 106 0;
+#X connect 111 0 141 0;
+#X connect 112 0 38 0;
+#X connect 113 0 114 1;
+#X connect 114 0 121 0;
+#X connect 114 0 153 0;
+#X connect 115 0 117 0;
+#X connect 116 0 170 0;
+#X connect 117 0 120 0;
+#X connect 118 0 113 0;
+#X connect 119 0 114 0;
+#X connect 120 0 118 0;
+#X connect 121 0 123 0;
+#X connect 122 0 119 0;
+#X connect 127 0 96 0;
+#X connect 130 0 108 1;
+#X connect 131 0 91 0;
+#X connect 134 0 157 0;
+#X connect 136 0 110 0;
+#X connect 137 0 138 0;
+#X connect 138 0 137 1;
+#X connect 138 0 156 0;
+#X connect 139 0 69 0;
+#X connect 140 0 139 0;
+#X connect 141 0 140 0;
+#X connect 141 0 133 0;
+#X connect 141 0 72 0;
+#X connect 141 0 77 0;
+#X connect 142 0 144 0;
+#X connect 143 0 142 0;
+#X connect 144 0 145 0;
+#X connect 145 0 144 1;
+#X connect 145 0 146 0;
+#X connect 146 0 147 0;
+#X connect 147 0 103 0;
+#X connect 148 0 80 0;
+#X connect 150 0 151 0;
+#X connect 151 0 152 0;
+#X connect 153 0 154 0;
+#X connect 154 0 155 0;
+#X connect 156 0 247 0;
+#X connect 157 0 158 0;
+#X connect 158 0 159 0;
+#X connect 159 0 158 1;
+#X connect 159 0 231 0;
+#X connect 160 0 115 0;
+#X connect 169 0 30 1;
+#X connect 170 0 117 1;
+#X connect 171 0 173 0;
+#X connect 172 0 171 0;
+#X connect 173 0 174 1;
+#X connect 174 0 25 0;
+#X connect 175 0 176 0;
+#X connect 176 0 179 0;
+#X connect 177 0 175 1;
+#X connect 178 0 174 0;
+#X connect 180 0 29 0;
+#X connect 181 0 116 0;
+#X connect 183 0 182 0;
+#X connect 183 0 140 1;
+#X connect 184 0 183 0;
+#X connect 185 0 191 0;
+#X connect 186 0 189 0;
+#X connect 187 0 186 0;
+#X connect 188 0 175 0;
+#X connect 189 0 188 0;
+#X connect 190 0 137 1;
+#X connect 191 0 185 1;
+#X connect 191 0 187 0;
+#X connect 192 0 185 1;
+#X connect 193 0 223 0;
+#X connect 194 0 196 0;
+#X connect 196 0 193 0;
+#X connect 197 0 198 0;
+#X connect 198 0 199 0;
+#X connect 199 0 202 0;
+#X connect 200 0 197 0;
+#X connect 205 0 219 0;
+#X connect 206 0 207 0;
+#X connect 207 0 220 0;
+#X connect 208 0 209 0;
+#X connect 209 0 206 0;
+#X connect 210 0 205 0;
+#X connect 213 0 208 0;
+#X connect 217 0 213 0;
+#X connect 218 0 210 0;
+#X connect 221 0 105 0;
+#X connect 222 0 194 0;
+#X connect 224 0 125 0;
+#X connect 224 0 135 0;
+#X connect 225 0 104 0;
+#X connect 225 0 132 0;
+#X connect 230 0 142 0;
+#X connect 231 0 160 0;
+#X connect 247 0 184 0;
+#X connect 248 0 22 0;
+#X connect 249 0 6 0;
+#X connect 250 0 97 0;
+#X connect 250 0 249 0;
+#X connect 252 0 253 0;
+#X connect 253 0 254 0;
+#X connect 254 0 48 0;
+#X connect 254 0 47 0;
+#X connect 255 0 99 0;
